@@ -101,6 +101,7 @@ img.img-button {
 }
 .flex {
   display: flex;
+  flex-direction: column;
 }
 img.remove {
   margin-left: 134px;

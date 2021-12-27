@@ -5,8 +5,9 @@ let butt = document.querySelector("button.add-action"),
   addAction = document.querySelector(".add-action"),
   sortDesc = document.querySelector(".sort-desc"),
   tasksText = document.querySelector(".tasks-text"),
-  tasksImage = document.querySelector(".tasksImage"),
+  tasksImage = document.querySelector(".task-image"),
   sortAsc = document.querySelector(".sort-asc");
+console.log(tasksImage);
 class TaskList {
   constructor(text) {
     this.tasks = ["clean"];
