@@ -4,6 +4,8 @@ let butt = document.querySelector("button.add-action"),
   imgButton = document.querySelector(".img-button"),
   addAction = document.querySelector(".add-action"),
   sortDesc = document.querySelector(".sort-desc"),
+  tasksText = document.querySelector(".tasks-text"),
+  tasksImage = document.querySelector(".tasksImage"),
   sortAsc = document.querySelector(".sort-asc");
 class TaskList {
   constructor(text) {
@@ -28,8 +30,8 @@ butt.addEventListener("click", (e) => {
   img.src = "IMG/TaskImg/Group 77.png";
   img.classList.add("remove");
   paragraf.textContent = input.value;
-  paragraf.append(img);
-  tasks.append(paragraf);
+  tasksImage.append(img);
+  tasksText.append(paragraf);
   input.value = "";
 });
 butt.addEventListener("mouseenter", (e) => {
@@ -47,7 +49,7 @@ addAction.addEventListener("click", (e) => {
       elem.target.src = "IMG/TaskImg/Group 70.png";
       elem.target.addEventListener("click", (item) => {
         // item.remove();
-        console.log(item);
+        // console.log(item);
       });
     });
     element.addEventListener("mouseleave", (e) => {

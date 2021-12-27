@@ -77,21 +77,20 @@ img.img-button {
   overflow: hidden;
 }
 .input-with-text {
-  /* margin-left: 10px; */
   margin-right: 10px;
   border-radius: 5px;
 }
-.tasks {
-  padding-right: 100px;
-  display: flex;
-  flex-direction: row;
+.tasks-text {
+  margin-left: 20px;
+  /* display: flex; */
+  /* flex-direction: row; */
 }
-.tasks > p {
+.tasks-text > p {
   display: block;
-  margin-left: 51px;
+  margin-left: 32px;
   margin-top: 0px;
   padding-top: 2px;
-  width: 100px;
+  width: 200px;
 }
 .tasks > p > img {
   display: block;
@@ -99,4 +98,10 @@ img.img-button {
   margin-bottom: 0px;
   padding-bottom: 0px;
   margin-left: 214px;
+}
+.flex {
+  display: flex;
+}
+img.remove {
+  margin-left: 134px;
 }
