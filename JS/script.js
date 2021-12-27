@@ -1,10 +1,10 @@
 let butt = document.querySelector("button.add-action"),
   input = document.querySelector(".text-action"),
   tasks = document.querySelector(".tasks"),
+  imgButton = document.querySelector(".img-button"),
+  addAction = document.querySelector(".add-action"),
   sortDesc = document.querySelector(".sort-desc"),
-  sortAsc = document.querySelector(".sort-asc"),
-  imgButton = document.querySelector(".img-button");
-console.log(butt);
+  sortAsc = document.querySelector(".sort-asc");
 class TaskList {
   constructor(text) {
     this.tasks = ["clean"];
@@ -30,7 +30,6 @@ butt.addEventListener("click", (e) => {
   paragraf.textContent = input.value;
   paragraf.append(img);
   tasks.append(paragraf);
-  // console.log(input.value);
   input.value = "";
 });
 butt.addEventListener("mouseenter", (e) => {
@@ -40,4 +39,31 @@ butt.addEventListener("mouseenter", (e) => {
 butt.addEventListener("mouseleave", (e) => {
   e.target.style.backgroundColor = "#833AE0";
   imgButton.style.backgroundColor = "#9953F1";
+});
+addAction.addEventListener("click", (e) => {
+  let remove = document.querySelectorAll(".remove");
+  remove.forEach((element) => {
+    element.addEventListener("mouseenter", (elem) => {
+      elem.target.src = "IMG/TaskImg/Group 70.png";
+      elem.target.addEventListener("click", (item) => {
+        // item.remove();
+        console.log(item);
+      });
+    });
+    element.addEventListener("mouseleave", (e) => {
+      e.target.src = "IMG/TaskImg/Group 77.png";
+    });
+  });
+});
+sortDesc.addEventListener("mouseenter", (e) => {
+  e.target.src = "IMG/Group 73.png";
+});
+sortDesc.addEventListener("mouseleave", (e) => {
+  e.target.src = "IMG/Group 74.png";
+});
+sortAsc.addEventListener("mouseenter", (e) => {
+  e.target.src = "IMG/Group 91.png";
+});
+sortAsc.addEventListener("mouseenter", (e) => {
+  e.target.src = "IMG/Group 90.png";
 });

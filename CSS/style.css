@@ -44,10 +44,9 @@ button.add-action {
   font-weight: bold;
   font-family: Roboto;
   margin-left: 108px;
-  margin-top: 16px;
+  margin-top: 21px;
   width: 120px;
-  padding-bottom: 5px;
-  /* text-align: 3px; */
+  padding-bottom: 14px;
 }
 .text-action {
   width: 280px;
@@ -66,8 +65,8 @@ button.add-action {
 .display {
   display: block;
   margin-left: 279px;
-  margin-bottom: 2px;
-  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-top: 0px;
 }
 img.img-button {
   height: 42px;
@@ -84,4 +83,20 @@ img.img-button {
 }
 .tasks {
   padding-right: 100px;
+  display: flex;
+  flex-direction: row;
+}
+.tasks > p {
+  display: block;
+  margin-left: 51px;
+  margin-top: 0px;
+  padding-top: 2px;
+  width: 100px;
+}
+.tasks > p > img {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  margin-left: 214px;
 }
