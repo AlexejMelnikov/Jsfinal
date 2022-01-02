@@ -9,6 +9,7 @@
   width: 336px;
   min-height: 236px;
   margin-top: 0px;
+  padding-bottom: 5px;
   margin-left: 0px;
   border: 1px solid lightskyblue;
   /* background-color: rgb(9, 56, 97); */
@@ -20,13 +21,14 @@
   width: auto;
 }
 button.add-action {
+  overflow: hidden;
   border: 1px solid lightskyblue;
   width: 152px;
   height: 45px;
   margin-top: 16px;
   margin-right: 95px;
   border-radius: 40px;
-  margin-left: 86px;
+  margin-left: 93px;
   background-color: #9953f1;
   color: white;
   display: flex;
@@ -44,9 +46,9 @@ button.add-action {
   font-weight: bold;
   font-family: Roboto;
   margin-left: 108px;
-  margin-top: 21px;
+  margin-top: 18px;
   width: 120px;
-  padding-bottom: 14px;
+  padding-bottom: 0px;
 }
 .text-action {
   width: 280px;
@@ -56,17 +58,12 @@ button.add-action {
   border: 1ps solid lightskyblue;
   margin-top: 7px;
 }
-.sort-asc {
-  display: none;
-}
-.sort-desc {
-  display: none;
-}
 .display {
   display: block;
   margin-left: 279px;
-  margin-bottom: 20px;
-  margin-top: 0px;
+  margin-bottom: 9px;
+  margin-top: 17px;
+  padding-bottom: 3px;
 }
 img.img-button {
   height: 42px;
@@ -74,35 +71,44 @@ img.img-button {
   padding-right: 5px;
   margin-top: 0px;
   background-color: #aa68fe;
-  overflow: hidden;
+  border-radius: 50%;
 }
 .input-with-text {
   margin-right: 10px;
   border-radius: 5px;
 }
-.tasks-text {
-  margin-left: 20px;
-  /* display: flex; */
-  /* flex-direction: row; */
-}
-.tasks-text > p {
-  display: block;
-  margin-left: 32px;
-  margin-top: 0px;
-  padding-top: 2px;
-  width: 200px;
-}
-.tasks > p > img {
-  display: block;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  margin-left: 214px;
-}
+
 .flex {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 img.remove {
-  margin-left: 134px;
+  margin-top: 2px;
+  margin-left: 20px;
+}
+.text-with-image > div > p {
+  margin-left: 11px;
+  width: 191px;
+  /* margin-right: 40px; */
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+.text-with-image {
+  border-radius: 5%;
+  border: 1px solid #c4c4c4;
+  width: 271px;
+  /* min-height: 220px; */
+  margin-left: 40px;
+}
+.remove {
+  cursor: pointer;
+}
+img.remove-desc {
+  margin-left: 100px;
+  margin-top: 20px;
+}
+.not-display {
+  display: none;
 }
