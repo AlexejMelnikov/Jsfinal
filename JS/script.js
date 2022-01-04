@@ -26,17 +26,17 @@ Task.addTask(" ");
 butt.addEventListener("click", (e) => {
   e.preventDefault();
   // созддание параграфа для текста
-  const paragraf = document.createElement("p"),
-    div = document.createElement("div"),
+  const div = document.createElement("div"),
+    inputs = document.createElement("input"),
     img = document.createElement("img");
   img.src = "IMG/TaskImg/Group 77.png";
   img.classList.add("remove");
   let remove = document.querySelector("img.remove");
   // console.log(remove);
-  paragraf.textContent = input.value;
+  inputs.value = input.value;
   Task.addTask(input.value);
   // console.log(Task.tasks);
-  div.append(paragraf);
+  div.append(inputs);
   div.append(img);
   // console.log(img.parentElement);
   textWithImage.append(div);
@@ -51,11 +51,13 @@ butt.addEventListener("mouseleave", (e) => {
   imgButton.style.backgroundColor = "#9953F1";
 });
 addAction.addEventListener("click", (e) => {
-  let remove = document.querySelectorAll(".remove");
+  let remove = document.querySelectorAll("img.remove");
   remove.forEach((element) => {
     element.addEventListener("mouseenter", (elem) => {
       elem.target.src = "IMG/TaskImg/Group 70.png";
-      elem.target.addEventListener("click", (item) => {});
+      elem.target.addEventListener("click", (item) => {
+        item.target.parentElement.remove();
+      });
     });
     element.addEventListener("mouseleave", (e) => {
       e.target.src = "IMG/TaskImg/Group 77.png";
@@ -88,17 +90,24 @@ const showArrayDesc = (arr) => {
     if (elem !== " ") {
       const div = document.createElement("div"),
         img = document.createElement("img"),
-        paragraf = document.createElement("p");
-      paragraf.textContent = elem;
-      div.append(paragraf);
+        input = document.createElement("input");
+      input.classList.add("input-with-image");
+      input.value = elem;
+      div.append(input);
       div.append(img);
       img.src = "IMG/TaskImg/Group 77.png";
       img.classList.add("remove");
+      img.addEventListener("mouseenter", (e) => {
+        e.target.src = "IMG/TaskImg/Group 70.png";
+      });
+      img.addEventListener("mouseleave", (e) => {
+        e.target.src = "IMG/TaskImg/Group 77.png";
+      });
       img.addEventListener("click", (e) => {
         e.target.parentElement.remove();
       });
       textWithImage.append(div);
-      div.append(paragraf);
+      div.append(input);
       img.classList.add("remove");
       div.append(img);
     }
@@ -119,17 +128,23 @@ const showArrayAsc = (arr) => {
     if (elem !== " ") {
       const div = document.createElement("div"),
         img = document.createElement("img"),
-        paragraf = document.createElement("p");
-      paragraf.textContent = elem;
-      div.append(paragraf);
+        input = document.createElement("input");
+      input.value = elem;
+      div.append(input);
       div.append(img);
       img.src = "IMG/TaskImg/Group 77.png";
       img.classList.add("remove");
+      img.addEventListener("mouseenter", (e) => {
+        e.target.src = "IMG/TaskImg/Group 70.png";
+      });
+      img.addEventListener("mouseleave", (e) => {
+        e.target.src = "IMG/TaskImg/Group 77.png";
+      });
       img.addEventListener("click", (e) => {
         e.target.parentElement.remove();
       });
       textWithImage.append(div);
-      div.append(paragraf);
+      div.append(input);
       img.classList.add("remove");
       div.append(img);
     }

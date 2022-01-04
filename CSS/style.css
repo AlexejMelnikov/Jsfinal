@@ -50,12 +50,13 @@ button.add-action {
   width: 120px;
   padding-bottom: 0px;
 }
-.text-action {
-  width: 280px;
+input.text-action {
+  width: 233px;
   height: 38px;
   margin-left: 27px;
-  border-radius: 6px;
-  border: 1ps solid lightskyblue;
+  /* border-radius: 6px; */
+  border: none;
+  /* border: 1ps solid lightskyblue; */
   margin-top: 7px;
 }
 .display {
@@ -86,21 +87,22 @@ img.remove {
   margin-top: 2px;
   margin-left: 20px;
 }
-.text-with-image > div > p {
-  margin-left: 11px;
+.text-with-image > div > input {
+  margin-left: 22px;
   width: 191px;
+  border: none;
   /* margin-right: 40px; */
   display: inline-block;
-  margin-top: 12px;
+  margin-top: 10px;
   font-size: 15px;
   padding-bottom: 10px;
 }
 .text-with-image {
   border-radius: 5%;
-  border: 1px solid #c4c4c4;
-  width: 271px;
+  /* border: 1px solid #c4c4c4; */
+  width: 282px;
   /* min-height: 220px; */
-  margin-left: 40px;
+  margin-left: 28px;
 }
 .remove {
   cursor: pointer;
