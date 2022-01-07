@@ -6,6 +6,7 @@ let butt = document.querySelector("button.add-action"),
   sortDesc = document.querySelector(".sort-desc"),
   textWithImage = document.querySelector(".text-with-image"),
   sortAsc = document.querySelector(".sort-asc");
+
 class TaskList {
   constructor(text, id = 0) {
     this.id = id++;
@@ -14,7 +15,10 @@ class TaskList {
   }
   addTask(text) {
     this.tasks.push(text);
-    // console.log(this.tasks);
+  }
+  changeTask(input) {
+    return input.value;
+    return this.tasks;
   }
   hoverButton(e) {
     e.target.style.backGroundColor = black;
@@ -22,23 +26,29 @@ class TaskList {
 }
 let Task = new TaskList();
 Task.addTask(" ");
-// console.log(Task);
 butt.addEventListener("click", (e) => {
   e.preventDefault();
-  // созддание параграфа для текста
   const div = document.createElement("div"),
     inputs = document.createElement("input"),
     img = document.createElement("img");
   img.src = "IMG/TaskImg/Group 77.png";
   img.classList.add("remove");
   let remove = document.querySelector("img.remove");
-  // console.log(remove);
+  inputs.classList.add("final-input");
   inputs.value = input.value;
+  let finalInput = document.querySelectorAll("final-input");
+
   Task.addTask(input.value);
-  // console.log(Task.tasks);
+  inputs.addEventListener("click", (e) => {
+    let indText = e.target.value;
+    let Ind = Task.tasks.indexOf(indText);
+    inputs.addEventListener("change", () => {
+      Task.tasks[Ind] = inputs.value;
+    });
+  });
+
   div.append(inputs);
   div.append(img);
-  // console.log(img.parentElement);
   textWithImage.append(div);
   input.value = "";
 });
@@ -79,21 +89,29 @@ sortAsc.addEventListener("mouseleave", (e) => {
 });
 
 const showArrayDesc = (arr) => {
-  // создали параграф для текста
-
   const textWithImage = document.querySelector(".text-with-image");
-  textWithImage.textContent = null;
+  textWithImage.innerHTML = " ";
   arr.sort((a, b) => {
-    return a - b;
+    return a.localeCompare(b);
   });
   arr.forEach((elem) => {
     if (elem !== " ") {
       const div = document.createElement("div"),
         img = document.createElement("img"),
         input = document.createElement("input");
-      input.classList.add("input-with-image");
+      input.classList.add("final-input");
       input.value = elem;
+      input.addEventListener("click", (e) => {
+        let indText = e.target.value;
+        let Ind = Task.tasks.indexOf(indText) - 1;
+        input.addEventListener("change", () => {
+          Task.tasks[Ind] = input.value;
+        });
+      });
       div.append(input);
+      input.addEventListener("change", () => {
+        Task.changeTask(input);
+      });
       div.append(img);
       img.src = "IMG/TaskImg/Group 77.png";
       img.classList.add("remove");
@@ -107,7 +125,6 @@ const showArrayDesc = (arr) => {
         e.target.parentElement.remove();
       });
       textWithImage.append(div);
-      div.append(input);
       img.classList.add("remove");
       div.append(img);
     }
@@ -116,22 +133,33 @@ const showArrayDesc = (arr) => {
   sortAsc.classList.toggle("not-display");
   sortAsc.classList.add("display");
 };
+// ascending sort array
 const showArrayAsc = (arr) => {
   // создали параграф для текста
-
   const textWithImage = document.querySelector(".text-with-image");
-  textWithImage.textContent = null;
+  textWithImage.innerHTML = " ";
   arr.sort((a, b) => {
-    return b - a;
+    return b.localeCompare(a);
   });
   arr.forEach((elem) => {
     if (elem !== " ") {
       const div = document.createElement("div"),
         img = document.createElement("img"),
         input = document.createElement("input");
+      input.addEventListener("click", (e) => {
+        let indText = e.target.value;
+        let Ind = Task.tasks.indexOf(indText);
+        input.addEventListener("change", () => {
+          Task.tasks[Ind] = input.value;
+        });
+      });
+      input.addEventListener("change", () => {
+        Task.changeTask(input);
+      });
       input.value = elem;
+      input.classList.add("final-input");
       div.append(input);
-      div.append(img);
+      // div.append(img);
       img.src = "IMG/TaskImg/Group 77.png";
       img.classList.add("remove");
       img.addEventListener("mouseenter", (e) => {
@@ -144,7 +172,6 @@ const showArrayAsc = (arr) => {
         e.target.parentElement.remove();
       });
       textWithImage.append(div);
-      div.append(input);
       img.classList.add("remove");
       div.append(img);
     }
