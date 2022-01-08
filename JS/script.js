@@ -34,6 +34,14 @@ butt.addEventListener("click", (e) => {
   let remove = document.querySelector("img.remove");
   // console.log(remove);
   inputs.value = input.value;
+  inputs.addEventListener("click", (e) => {
+    let indText = inputs.value;
+    let ind = Task.tasks.indexOf(indText);
+    console.log(ind);
+    inputs.addEventListener("change", () => {
+      Task.tasks[ind] = inputs.value;
+    });
+  });
   Task.addTask(input.value);
   // console.log(Task.tasks);
   div.append(inputs);
@@ -84,7 +92,7 @@ const showArrayDesc = (arr) => {
   const textWithImage = document.querySelector(".text-with-image");
   textWithImage.textContent = null;
   arr.sort((a, b) => {
-    return a - b;
+    return a.localeCompare(b);
   });
   arr.forEach((elem) => {
     if (elem !== " ") {
@@ -93,6 +101,14 @@ const showArrayDesc = (arr) => {
         input = document.createElement("input");
       input.classList.add("input-with-image");
       input.value = elem;
+      input.addEventListener("click", (e) => {
+        let indText = input.value;
+        let ind = Task.tasks.indexOf(indText);
+        console.log(ind);
+        input.addEventListener("change", () => {
+          Task.tasks[ind] = input.value;
+        });
+      });
       div.append(input);
       div.append(img);
       img.src = "IMG/TaskImg/Group 77.png";
@@ -122,7 +138,7 @@ const showArrayAsc = (arr) => {
   const textWithImage = document.querySelector(".text-with-image");
   textWithImage.textContent = null;
   arr.sort((a, b) => {
-    return b - a;
+    return b.localeCompare(a);
   });
   arr.forEach((elem) => {
     if (elem !== " ") {
@@ -130,6 +146,14 @@ const showArrayAsc = (arr) => {
         img = document.createElement("img"),
         input = document.createElement("input");
       input.value = elem;
+      input.addEventListener("click", (e) => {
+        let indText = input.value;
+        let ind = Task.tasks.indexOf(indText);
+        console.log(ind);
+        input.addEventListener("change", () => {
+          Task.tasks[ind] = input.value;
+        });
+      });
       div.append(input);
       div.append(img);
       img.src = "IMG/TaskImg/Group 77.png";
