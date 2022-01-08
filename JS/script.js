@@ -14,7 +14,6 @@ class TaskList {
   }
   addTask(text) {
     this.tasks.push(text);
-    // console.log(this.tasks);
   }
   hoverButton(e) {
     e.target.style.backGroundColor = black;
@@ -32,21 +31,18 @@ butt.addEventListener("click", (e) => {
   img.src = "IMG/TaskImg/Group 77.png";
   img.classList.add("remove");
   let remove = document.querySelector("img.remove");
-  // console.log(remove);
   inputs.value = input.value;
   inputs.addEventListener("click", (e) => {
     let indText = inputs.value;
     let ind = Task.tasks.indexOf(indText);
-    console.log(ind);
     inputs.addEventListener("change", () => {
       Task.tasks[ind] = inputs.value;
     });
   });
   Task.addTask(input.value);
-  // console.log(Task.tasks);
   div.append(inputs);
   div.append(img);
-  // console.log(img.parentElement);
+
   textWithImage.append(div);
   input.value = "";
 });
@@ -58,12 +54,18 @@ butt.addEventListener("mouseleave", (e) => {
   e.target.style.backgroundColor = "#833AE0";
   imgButton.style.backgroundColor = "#9953F1";
 });
+
 addAction.addEventListener("click", (e) => {
   let remove = document.querySelectorAll("img.remove");
-  remove.forEach((element) => {
+  remove.forEach((element, num) => {
     element.addEventListener("mouseenter", (elem) => {
       elem.target.src = "IMG/TaskImg/Group 70.png";
       elem.target.addEventListener("click", (item) => {
+        let textDelete = item.target.previousSibling.value;
+        console.log(textDelete);
+        let indDelete = Task.tasks.indexOf(textDelete);
+        // console.log(indDelete);
+        Task.tasks.splice(indDelete - 1, 1);
         item.target.parentElement.remove();
       });
     });
