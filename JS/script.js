@@ -60,12 +60,12 @@ addAction.addEventListener("click", (e) => {
   remove.forEach((element, num) => {
     element.addEventListener("mouseenter", (elem) => {
       elem.target.src = "IMG/TaskImg/Group 70.png";
+      console.log(Task.tasks);
       elem.target.addEventListener("click", (item) => {
         let textDelete = item.target.previousSibling.value;
-        console.log(textDelete);
         let indDelete = Task.tasks.indexOf(textDelete);
-        // console.log(indDelete);
-        Task.tasks.splice(indDelete - 1, 1);
+        let deleted = Task.tasks.splice(indDelete, 1);
+        Task.tasks.push("");
         item.target.parentElement.remove();
       });
     });
