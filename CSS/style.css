@@ -90,12 +90,15 @@ img.remove {
 .text-with-image > div > input {
   margin-left: 22px;
   width: 191px;
-  /* border: 1px solid lightskyblue; */
+  border: none;
   /* margin-right: 40px; */
   display: inline-block;
   margin-top: 10px;
   font-size: 15px;
   padding-bottom: 10px;
+}
+.text-with-image {
+  border: 1px solid lightskyblue;
 }
 .text-with-image {
   border-radius: 5%;

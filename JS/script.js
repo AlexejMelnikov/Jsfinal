@@ -18,13 +18,12 @@ class TaskList {
   hoverButton(e) {
     e.target.style.backGroundColor = black;
   }
+  changeTask() {
+    return this.tasks;
+  }
 }
-let Task = new TaskList();
-Task.addTask(" ");
-// console.log(Task);
-butt.addEventListener("click", (e) => {
+function createData(e) {
   e.preventDefault();
-  // созддание параграфа для текста
   const div = document.createElement("div"),
     inputs = document.createElement("input"),
     img = document.createElement("img");
@@ -37,6 +36,7 @@ butt.addEventListener("click", (e) => {
     let ind = Task.tasks.indexOf(indText);
     inputs.addEventListener("change", () => {
       Task.tasks[ind] = inputs.value;
+      // console.log(Task.changeTask());
     });
   });
   Task.addTask(input.value);
@@ -45,7 +45,12 @@ butt.addEventListener("click", (e) => {
 
   textWithImage.append(div);
   input.value = "";
-});
+}
+
+let Task = new TaskList();
+// Task.addTask(" ");
+// console.log(Task);
+butt.addEventListener("click", createData);
 butt.addEventListener("mouseenter", (e) => {
   e.target.style.backgroundColor = "#9953F1";
   imgButton.style.backgroundColor = "#AA68FE";
@@ -60,7 +65,7 @@ addAction.addEventListener("click", (e) => {
   remove.forEach((element, num) => {
     element.addEventListener("mouseenter", (elem) => {
       elem.target.src = "IMG/TaskImg/Group 70.png";
-      console.log(Task.tasks);
+      // console.log(Task.tasks);
       elem.target.addEventListener("click", (item) => {
         let textDelete = item.target.previousSibling.value;
         let indDelete = Task.tasks.indexOf(textDelete);
@@ -88,14 +93,19 @@ sortAsc.addEventListener("mouseleave", (e) => {
   e.target.src = "IMG/Group 90.png";
 });
 
-const showArrayDesc = (arr) => {
+const showArrayDesc = (arr, asc) => {
   // создали параграф для текста
 
   const textWithImage = document.querySelector(".text-with-image");
-  textWithImage.textContent = null;
-  arr.sort((a, b) => {
-    return a.localeCompare(b);
-  });
+  textWithImage.innerHTML = "";
+
+  asc == "true"
+    ? arr.sort((a, b) => {
+        return a.localeCompare(b);
+      })
+    : arr.sort((a, b) => {
+        return a.localeCompare(b);
+      });
   arr.forEach((elem) => {
     if (elem !== " ") {
       const div = document.createElement("div"),
