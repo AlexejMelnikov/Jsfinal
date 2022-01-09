@@ -90,7 +90,7 @@ img.remove {
 .text-with-image > div > input {
   margin-left: 22px;
   width: 191px;
-  border: none;
+  /* border: 1px solid lightskyblue; */
   /* margin-right: 40px; */
   display: inline-block;
   margin-top: 10px;
