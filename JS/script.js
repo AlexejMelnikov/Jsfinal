@@ -21,36 +21,50 @@ class TaskList {
   changeTask() {
     return this.tasks;
   }
-}
-function createData(e) {
-  e.preventDefault();
-  const div = document.createElement("div"),
-    inputs = document.createElement("input"),
-    img = document.createElement("img");
-  img.src = "IMG/TaskImg/Group 77.png";
-  img.classList.add("remove");
-  let remove = document.querySelector("img.remove");
-  inputs.value = input.value;
-  inputs.addEventListener("click", (e) => {
-    let indText = inputs.value;
-    let ind = Task.tasks.indexOf(indText);
-    inputs.addEventListener("change", () => {
-      Task.tasks[ind] = inputs.value;
-      // console.log(Task.changeTask());
+  removeTask(item) {
+    // i.addEventListener("click", (item) => {
+    let textDelete = item.target.previousSibling.value;
+    // console.log(textDelete);
+    let indDelete = Task.tasks.indexOf(textDelete);
+    let deleted = Task.tasks.splice(indDelete, 1);
+    // console.log(Task);
+    Task.tasks.push("");
+    item.target.parentElement.remove();
+    Task.tasks = Task.tasks.filter((el) => el != null);
+    // });
+  }
+  createData() {
+    // e.preventDefault();
+    const div = document.createElement("div"),
+      inputs = document.createElement("input"),
+      img = document.createElement("img");
+    img.src = "IMG/TaskImg/Group 77.png";
+    img.classList.add("remove");
+    let remove = document.querySelector("img.remove");
+    inputs.value = input.value;
+    inputs.addEventListener("click", (e) => {
+      let indText = inputs.value;
+      let ind = Task.tasks.indexOf(indText);
+      inputs.addEventListener("change", () => {
+        Task.tasks[ind] = inputs.value;
+        // console.log(Task.changeTask());
+      });
     });
-  });
-  Task.addTask(input.value);
-  div.append(inputs);
-  div.append(img);
+    Task.addTask(input.value);
+    div.append(inputs);
+    div.append(img);
 
-  textWithImage.append(div);
-  input.value = "";
+    textWithImage.append(div);
+    input.value = "";
+  }
 }
-
 let Task = new TaskList();
 // Task.addTask(" ");
 // console.log(Task);
-butt.addEventListener("click", createData);
+butt.addEventListener("click", (e) => {
+  e.preventDefault();
+  Task.createData(e);
+});
 butt.addEventListener("mouseenter", (e) => {
   e.target.style.backgroundColor = "#9953F1";
   imgButton.style.backgroundColor = "#AA68FE";
@@ -65,20 +79,18 @@ addAction.addEventListener("click", (e) => {
   remove.forEach((element, num) => {
     element.addEventListener("mouseenter", (elem) => {
       elem.target.src = "IMG/TaskImg/Group 70.png";
-      // console.log(Task.tasks);
-      elem.target.addEventListener("click", (item) => {
-        let textDelete = item.target.previousSibling.value;
-        let indDelete = Task.tasks.indexOf(textDelete);
-        let deleted = Task.tasks.splice(indDelete, 1);
-        Task.tasks.push("");
-        item.target.parentElement.remove();
-      });
     });
     element.addEventListener("mouseleave", (e) => {
       e.target.src = "IMG/TaskImg/Group 77.png";
     });
+    let remove = document.querySelectorAll("img.remove");
+    // console.log(remove);
+    remove.forEach((i) => {
+      i.addEventListener("click", Task.removeTask);
+    });
   });
 });
+
 sortDesc.addEventListener("mouseenter", (e) => {
   e.target.src = "IMG/Group 73.png";
 });
@@ -111,12 +123,14 @@ const showArrayDesc = (arr, asc) => {
       const div = document.createElement("div"),
         img = document.createElement("img"),
         input = document.createElement("input");
+
       input.classList.add("input-with-image");
       input.value = elem;
+
       input.addEventListener("click", (e) => {
         let indText = input.value;
         let ind = Task.tasks.indexOf(indText);
-        console.log(ind);
+        // console.log(ind);
         input.addEventListener("change", () => {
           Task.tasks[ind] = input.value;
         });
@@ -125,6 +139,7 @@ const showArrayDesc = (arr, asc) => {
       div.append(img);
       img.src = "IMG/TaskImg/Group 77.png";
       img.classList.add("remove");
+
       img.addEventListener("mouseenter", (e) => {
         e.target.src = "IMG/TaskImg/Group 70.png";
       });
