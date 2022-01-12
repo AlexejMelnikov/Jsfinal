@@ -22,22 +22,19 @@ class TaskList {
     return this.tasks;
   }
   removeTask(item) {
-    // i.addEventListener("click", (item) => {
     let textDelete = item.target.previousSibling.value;
-    // console.log(textDelete);
+
     let indDelete = Task.tasks.indexOf(textDelete);
     let deleted = Task.tasks.splice(indDelete, 1);
-    // console.log(Task);
+
     Task.tasks.push("");
     item.target.parentElement.remove();
-    Task.tasks = Task.tasks.filter((el) => el != null);
-    // });
   }
   createData() {
-    // e.preventDefault();
     const div = document.createElement("div"),
       inputs = document.createElement("input"),
       img = document.createElement("img");
+    div.classList.add("div-data");
     img.src = "IMG/TaskImg/Group 77.png";
     img.classList.add("remove");
     let remove = document.querySelector("img.remove");
@@ -152,6 +149,7 @@ const showArrayDesc = (arr, asc) => {
       textWithImage.append(div);
       div.append(input);
       img.classList.add("remove");
+      img.addEventListener("click", Task.removeTask);
       div.append(img);
     }
   });
@@ -183,6 +181,7 @@ const showArrayAsc = (arr) => {
       });
       div.append(input);
       div.append(img);
+      img.addEventListener("click", Task.removeTask);
       img.src = "IMG/TaskImg/Group 77.png";
       img.classList.add("remove");
       img.addEventListener("mouseenter", (e) => {
